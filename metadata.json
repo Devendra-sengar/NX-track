@@ -1,0 +1,6 @@
+{
+  "name": "NX Track - Precision Fleet Telematics & Vehicle Intelligence",
+  "description": "ASIL-D Level 4 telematics architecture by NexisparkX Group. Connected vehicles, CAN-bus diagnostics, RTK GNSS tracking, and automated dispatch management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
