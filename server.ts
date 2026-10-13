@@ -1,5 +1,4 @@
 import express from 'express';
-import { createServer as createViteServer } from 'vite';
 import nodemailer, { type Transporter, type TestAccount } from 'nodemailer';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -234,22 +233,12 @@ app.get('/api/mail-status', async (_req, res) => {
 });
 
 async function startServer() {
-  if (!isProduction) {
-    const vite = await createViteServer({
-      server: {
-        middlewareMode: true,
-        host: '0.0.0.0',
-        port: PORT,
-      },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
-  } else {
+
     app.use(express.static(path.resolve(__dirname, 'dist')));
     app.get('*', (_req, res) => {
       res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
     });
-  }
+
 
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 NX Track Server running on http://0.0.0.0:${PORT}`);
